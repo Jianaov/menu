@@ -1,528 +1,278 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jian AOV</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
-
-    body{
-      background:#f3f3f7;
-      color:#222;
-      padding:20px;
-      transition:0.3s;
-      -webkit-touch-callout:none;
-    }
-
-    img{
-      -webkit-user-drag:none;
-      user-select:none;
-      pointer-events:none;
-    }
-
-    .container{
-      max-width:480px;
-      margin:auto;
-    }
-
-    .profile{
-      text-align:center;
-      margin-top:30px;
-    }
-
-    .avatar-frame{
-      position:relative;
-      width:220px;
-      height:220px;
-      margin:auto;
-    }
-
-    .avatar{
-      position:absolute;
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      object-fit:cover;
-
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-
-      z-index:1;
-    }
-
-    .frame{
-      position:absolute;
-      width:220px;
-      height:220px;
-      object-fit:contain;
-
-      top:0;
-      left:0;
-
-      z-index:2;
-      pointer-events:none;
-    }
-
-    .name{
-      font-size:42px;
-      font-weight:700;
-      margin-top:10px;
-    }
-
-    .verify{
-      color:#1d9bf0;
-      font-size:28px;
-    }
-
-    .desc{
-      margin-top:5px;
-      color:#777;
-      font-size:20px;
-    }
-
-    .desc span{
-      color:#6d5cff;
-      font-weight:600;
-    }
-
-    .socials{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      margin-top:40px;
-      margin-bottom:60px;
-    }
-
-    .social-btn{
-      width:82px;
-      height:82px;
-      background:white;
-      border-radius:24px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      box-shadow:0 5px 15px rgba(0,0,0,0.08);
-      transition:0.2s;
-    }
-
-    .social-btn:hover{
-      transform:translateY(-5px);
-    }
-
-    .youtube{
-      color:red;
-      font-size:36px;
-    }
-
-    .telegram{
-      color:#229ED9;
-      font-size:34px;
-    }
-
-    .zalo{
-      color:#0068ff;
-      font-weight:700;
-      font-size:28px;
-    }
-
-    .title{
-      text-align:center;
-      font-size:30px;
-      font-weight:700;
-      margin-bottom:25px;
-    }
-
-    .card{
-      background:white;
-      border-radius:30px;
-      padding:18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:22px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.05);
-      transition:0.3s;
-    }
-
-    .left{
-      display:flex;
-      align-items:center;
-      gap:16px;
-    }
-
-    .game-img{
-      width:75px;
-      height:75px;
-      border-radius:18px;
-      object-fit:cover;
-    }
-
-    .game-name{
-      font-size:18px;
-      font-weight:600;
-    }
-
-    .date{
-      color:#999;
-      font-size:14px;
-      margin-top:5px;
-    }
-
-    .download{
-      width:54px;
-      height:54px;
-      border-radius:50%;
-      background:#e97fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-size:20px;
-      text-decoration:none;
-      transition:0.2s;
-    }
-
-    .download:hover{
-      transform:scale(1.1);
-    }
-
-    #theme-toggle{
-      position:fixed;
-      top:20px;
-      right:20px;
-      width:50px;
-      height:50px;
-      border:none;
-      border-radius:50%;
-      background:#111;
-      color:white;
-      font-size:20px;
-      cursor:pointer;
-      z-index:9999;
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);
-      transition:0.3s;
-    }
-
-    #theme-toggle:hover{
-      transform:scale(1.1);
-    }
-
-    body.dark{
-      background:#111;
-      color:white;
-    }
-
-    body.dark .card{
-      background:#1c1c1c;
-      color:white;
-    }
-
-    body.dark .social-btn{
-      background:#1c1c1c;
-    }
-
-    body.dark .desc{
-      color:#bbb;
-    }
-
-    body.dark .date{
-      color:#888;
-    }
-
-    body.dark .title{
-      color:white;
-    }
-
-    .copyright{
-      text-align:center;
-      margin-top:40px;
-      margin-bottom:20px;
-      color:#888;
-      font-size:14px;
-    }
-
-    body.dark .copyright{
-      color:#aaa;
-    }
-
-    @media(max-width:500px){
-
-      .name{
-        font-size:34px;
-      }
-
-      .desc{
-        font-size:18px;
-      }
-
-    }
-
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Zack AOV</title>
+    <meta name="description" content="Nền tảng cung cấp giải pháp công nghệ ios 5.0 giúp game thủ leo rank an toàn và hiệu quả." />
+    <meta name="keywords" content="Zack AOV, zack aov, zackaov" />
+    <meta name="author" content="Zack AOV" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://zackaov.com/" />
+    <link rel="icon" href="https://zackaov.com/uploads/intro/1779540353_a5ef5ada02eacfb4.png" type="image/png" />
+    <link rel="shortcut icon" href="https://zackaov.com/uploads/intro/1779540353_a5ef5ada02eacfb4.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="https://zackaov.com/uploads/intro/1779540353_a5ef5ada02eacfb4.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="zackaov" />
+    <meta property="og:url" content="https://zackaov.com/" />
+    <meta property="og:title" content="Zack AOV" />
+    <meta property="og:description" content="Nền tảng cung cấp giải pháp công nghệ ios 5.0 giúp game thủ leo rank an toàn và hiệu quả." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zack AOV" />
+    <meta name="twitter:description" content="Nền tảng cung cấp giải pháp công nghệ ios 5.0 giúp game thủ leo rank an toàn và hiệu quả." />
+    <link rel="preload" as="image" href="https://zackaov.com/uploads/intro/1779540353_edbd055842fd683d.png" fetchpriority="high" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://zackaov.com/assets/css/style.2.0.css?v=1780720701" />
 </head>
-
 <body>
+    <main role="main">
+        <!-- NAV -->
+        <nav class="zackaov-nav" aria-label="Điều hướng chính">
+            <button class="zackaov-bell-btn" id="zackaov-bell-btn" aria-label="Thông báo">
+                <i class="fas fa-bell"></i>
+                                <span class="zackaov-bell-badge"></span>
+                            </button>
+            <button class="zackaov-theme-btn" id="zackaov-theme-toggle" onclick="vtToggleTheme()" aria-label="Chuyển chế độ tối/sáng">
+                <i class="fas fa-circle-half-stroke zackaov-icon-flip" id="zackaov-theme-icon"></i>
+            </button>
+        </nav>
 
-<button id="theme-toggle">
-  <i class="fa-solid fa-moon"></i>
-</button>
-
-<div class="container">
-
-  <div class="profile">
-
-    <div class="avatar-frame">
-
-      <img class="avatar"
-      src="https://i.imgur.com/sFsP8yx.png">
-
-    </div>
-
-    <div class="name">
-      JIAN AOV
-      <i class="fa-solid fa-circle-check verify"></i>
-    </div>
-
-    <div class="desc">
-      Website <span>Jianmodz</span>
-    </div>
-
-    <div class="socials">
-
-      <a href="https://youtube.com/@jian-modskin?si=1_1zFRRERKJ4AO6I" class="social-btn">
-        <i class="fa-brands fa-youtube youtube"></i>
-      </a>
-
-      <a href="https://zalo.me/g/n8rump3mck74wysefpyx" class="social-btn">
-        <div class="zalo">Zalo</div>
-      </a>
-
-      <a href="https://t.me/jianmodskin" class="social-btn">
-        <i class="fa-brands fa-telegram telegram"></i>
-      </a>
-
-    </div>
-
-  </div>
-
-  <div class="title">Tải Game</div>
-
-  <div class="card">
-
-    <div class="left">
-
-      <img class="game-img"
-      src="https://i.imgur.com/zx7iaTw.jpeg">
-
-      <div>
-
-        <div class="game-name">
-          Menu Hack Map IOS
+        <!-- NOTIFICATION POPUP -->
+        <div id="zackaov-notif-overlay" class="zackaov-notif-overlay" onclick="vtCloseNotif(event)"></div>
+        <div id="zackaov-notif-panel" class="zackaov-notif-panel">
+            <div class="zackaov-notif-header">
+                <span><i class="fas fa-bell"></i> Thông Báo</span>
+                <button onclick="vtCloseNotif()" class="zackaov-notif-close"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div class="zackaov-notif-body">
+                                                <div class="zackaov-notif-item">
+                    <div class="zackaov-notif-title">Admin Zack</div>
+                                        <div class="zackaov-notif-content">Anh em lưu ý Tất cả bản hack mod file trên Web đều là dành cho iOS hết nhé, còn Android hiện tại chúng tôi đang phát triển và trong tương lai nhất định sẽ có.</div>
+                                        <div class="zackaov-notif-time">01:38 07/06/2026</div>
+                </div>
+                                            </div>
         </div>
 
-        <div class="date">
-          Đang Hoạt Động 🟢
+        <!-- AVATAR -->
+        <div class="zackaov-avatar-wrap">
+            <img class="zackaov-avatar" src="/uploads/intro/1779540353_edbd055842fd683d.png" alt="Ảnh đại diện Zack AOV" fetchpriority="high" width="120" height="120">
+            <span class="zackaov-online-dot"></span>
         </div>
 
-      </div>
+        <!-- NAME & HEADLINE -->
+        <p class="zackaov-iam">Hi, i am</p>
+        <h1 class="zackaov-name">
+            Zack AOV            <img class="zackaov-verify" src="assets/img/verify.png" alt="verified" width="27" height="27">
+        </h1>
+        <p class="zackaov-headline">Join <span id="typed-text" class="zackaov-gradient-text"></span></p>
 
-    </div>
+        <!-- SOCIALS -->
+        <div class="zackaov-socials">
+                            <a href="https://t.me/zackaov" class="zackaov-social-item" target="_blank" rel="noopener noreferrer" aria-label="Mạng xã hội">
+                    <img src="/uploads/social/1780246170_467c5976f5747a2c.png" alt="Social" width="40" height="40">
+                </a>
+                            <a href="https://youtube.com/@zackaov" class="zackaov-social-item" target="_blank" rel="noopener noreferrer" aria-label="Mạng xã hội">
+                    <img src="/uploads/social/1780246162_133945f2ee927bab.png" alt="Social" width="40" height="40">
+                </a>
+                            <a href="https://discord.gg/wMpyt2MS6R" class="zackaov-social-item" target="_blank" rel="noopener noreferrer" aria-label="Mạng xã hội">
+                    <img src="/uploads/social/1780246067_6b540a67208ce38b.png" alt="Social" width="40" height="40">
+                </a>
+                    </div>
 
-    <a href="https://ipas.cc/c466o2"
-    target="_blank"
-    class="download">
+        <!-- LINK BOXES -->
+        <div class="zackaov-linkbox-section">
+                        <div>
+                <div class="zackaov-linkbox">
+                                        <div class="zackaov-linkbox-item">
+                        <p class="zackaov-linkbox-title">Website Mua Key Không Cần Vượt</p>
+                        <a href="https://shop.zackaov.com/" class="zackaov-link-btn"
+                           target="_blank" rel="noopener"                           aria-label="Website Mua Key Không Cần Vượt">
+                                                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                        <div class="zackaov-linkbox-item">
+                        <p class="zackaov-linkbox-title">Acc Liên Quân Miễn Phí</p>
+                        <a href="https://zackaov.com/random" class="zackaov-link-btn"
+                           target="_blank" rel="noopener"                           aria-label="Acc Liên Quân Miễn Phí">
+                                                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                        <div class="zackaov-linkbox-item">
+                        <p class="zackaov-linkbox-title">Telegram Group</p>
+                        <a href="https://t.me/zackaov" class="zackaov-link-btn"
+                           target="_blank" rel="noopener"                           aria-label="Telegram Group">
+                                                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                    </div>
+            </div>
+                        <div>
+                <div class="zackaov-linkbox">
+                                        <div class="zackaov-linkbox-item">
+                        <p class="zackaov-linkbox-title">Website Mua Chứng Chỉ Cá Nhân</p>
+                        <a href="https://app.zackaov.com/" class="zackaov-link-btn"
+                           target="_blank" rel="noopener"                           aria-label="Website Mua Chứng Chỉ Cá Nhân">
+                                                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                        <div class="zackaov-linkbox-item">
+                        <p class="zackaov-linkbox-title">Profile Dns Anti Revoke</p>
+                        <a href="https://storeipa.com/file/zackaov.mobileconfig" class="zackaov-link-btn"
+                                                      aria-label="Profile Dns Anti Revoke">
+                                                            <i class="fa-solid fa-download" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                        <div class="zackaov-linkbox-item">
+                        <p class="zackaov-linkbox-title">Nhóm Discord</p>
+                        <a href="https://discord.gg/wMpyt2MS6R" class="zackaov-link-btn"
+                           target="_blank" rel="noopener"                           aria-label="Nhóm Discord">
+                                                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                    </div>
+            </div>
+                    </div>
 
-      <i class="fa-solid fa-download"></i>
+        <!-- CATEGORY TABS -->
+        
+        <!-- APP GROUPS -->
+        <section class="zackaov-app-section" aria-label="Danh sách ứng dụng">
+                            <div class="zackaov-group-block" id="group-1">
+                <h2 class="zackaov-section-title">
+                    ZACK MAP V1                                    </h2>
+                                <div class="zackaov-app-list">
+                                            <div class="zackaov-app-item">
+                            <div class="zackaov-app-info">
+                                <img src="/uploads/apps/1780508211_dee116efc3fd14f5.jpeg" alt="MENU ZACK MAP V1" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="zackaov-app-name">
+                                        MENU ZACK MAP V1                                    </span>
+                                                                            <span class="zackaov-app-desc">
+                                            Cập Nhật Ngày 4/6                                        </span>
+                                                                    </div>
+                            </div>
+                            <button class="zackaov-download-btn " aria-label="Tải xuống MENU ZACK MAP V1" onclick="window.open('https://zacksub.com/Ms9NS','_blank')">
+                                <span class="svg-icon"></span>
+                            </button>
+                        </div>
+                                            <div class="zackaov-app-item">
+                            <div class="zackaov-app-info">
+                                <img src="/uploads/apps/1780510697_e55cb28c6ac91e4f.png" alt="KEY ZACK MAP V1" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="zackaov-app-name">
+                                        KEY ZACK MAP V1                                    </span>
+                                                                            <span class="zackaov-auto-time"></span>
+                                                                    </div>
+                            </div>
+                            <button class="zackaov-download-btn zackaov-link-type" aria-label="Trụy cập KEY ZACK MAP V1" onclick="window.open('https://my.zackaov.com/zack-map','_blank')">
+                                <span class="svg-icon"></span>
+                            </button>
+                        </div>
+                                    </div>
+                </div>
+                            <div class="zackaov-group-block" id="group-3">
+                <h2 class="zackaov-section-title">
+                    ZACK MOD V2                                    </h2>
+                                <div class="zackaov-app-list">
+                                            <div class="zackaov-app-item">
+                            <div class="zackaov-app-info">
+                                <img src="/uploads/apps/1780509531_291e2608ee88cac7.jpeg" alt="MENU ZACK MOD V2" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="zackaov-app-name">
+                                        MENU ZACK MOD V2                                    </span>
+                                                                            <span class="zackaov-app-desc">
+                                            Cập Nhật Ngày 4/6                                        </span>
+                                                                    </div>
+                            </div>
+                            <button class="zackaov-download-btn " aria-label="Tải xuống MENU ZACK MOD V2" onclick="window.open('https://zacksub.com/OuOYcC7','_blank')">
+                                <span class="svg-icon"></span>
+                            </button>
+                        </div>
+                                            <div class="zackaov-app-item">
+                            <div class="zackaov-app-info">
+                                <img src="/uploads/apps/1780510740_6e4c3349adc5cba0.png" alt="KEY ZACK MOD V2" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="zackaov-app-name">
+                                        KEY ZACK MOD V2                                    </span>
+                                                                            <span class="zackaov-auto-time"></span>
+                                                                    </div>
+                            </div>
+                            <button class="zackaov-download-btn zackaov-link-type" aria-label="Trụy cập KEY ZACK MOD V2" onclick="window.open('https://my.zackaov.com/zack-mod','_blank')">
+                                <span class="svg-icon"></span>
+                            </button>
+                        </div>
+                                    </div>
+                </div>
+                            <div class="zackaov-group-block" id="group-2">
+                <h2 class="zackaov-section-title">
+                    FILE MOD SKIN                                    </h2>
+                                <div class="zackaov-app-list">
+                                            <div class="zackaov-app-item">
+                            <div class="zackaov-app-info">
+                                <img src="/uploads/apps/1780244502_6b10569d235d2979.png" alt="FILE 50 SKIN LQ V2" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="zackaov-app-name">
+                                        FILE 50 SKIN LQ V2                                    </span>
+                                                                            <span class="zackaov-app-desc">
+                                            Cập Nhật Ngày 5/6                                        </span>
+                                                                    </div>
+                            </div>
+                            <button class="zackaov-download-btn " aria-label="Tải xuống FILE 50 SKIN LQ V2" onclick="window.open('https://my.zackaov.com/gkLv','_blank')">
+                                <span class="svg-icon"></span>
+                            </button>
+                        </div>
+                                    </div>
+                </div>
+                    </section>
 
-    </a>
-
-  </div>
-
-  <div class="card">
-
-    <div class="left">
-
-      <img class="game-img"
-      src="https://i.imgur.com/zx7iaTw.jpeg">
-
-      <div>
-
-        <div class="game-name">
-          Menu Hack Map Android
+        <!-- SNOW -->
+        <!--<div id="snows" aria-hidden="true"></div>-->
+        
+        <!-- MUSIC PLAYER -->
+        <div class="zackaov-skill">
+            <div class="zackaov-music-player">
+                <div class="zackaov-disc-outer">
+                    <iframe id="sc-widget" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/th-ng-v-n-866031815/sets/zackaov&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"
+                        style="position:absolute;inset:0;width:100%;height:100%;opacity:0;border-radius:50%;pointer-events:none;" title="SoundCloud Player"></iframe>
+                    <div class="zackaov-disc-wrap">
+                        <div class="zackaov-disc" id="zackaov-disc">
+                            <div class="zackaov-disc-loading" id="zackaov-disc-loading">
+                                <i class="fas fa-headphones"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zackaov-track-info">
+                    <div class="zackaov-track-title" id="zackaov-track-title">Đang tải...</div>
+                    <div class="zackaov-track-artist" id="zackaov-track-artist">SoundCloud</div>
+                </div>
+                <div class="zackaov-progress-wrap">
+                    <span class="zackaov-time" id="zackaov-time-cur">00:00</span>
+                    <div class="zackaov-progress-track" id="zackaov-progress-track">
+                        <div class="zackaov-progress-fill" id="zackaov-progress-fill"></div>
+                    </div>
+                    <span class="zackaov-time" id="zackaov-time-total">00:00</span>
+                </div>
+                <div class="zackaov-controls">
+                    <button class="zackaov-ctrl-btn" onclick="vtMusicPrev()" aria-label="Bài trước"><i class="fas fa-backward"></i></button>
+                    <button class="zackaov-play-btn" id="zackaov-play-btn" onclick="vtMusicToggle()" aria-label="Phát/Dừng">
+                        <i class="fas fa-play" id="zackaov-play-icon"></i>
+                    </button>
+                    <button class="zackaov-ctrl-btn" onclick="vtMusicNext()" aria-label="Bài tiếp"><i class="fas fa-forward"></i></button>
+                </div>
+            </div>
         </div>
 
-        <div class="date">
-          Đang hoạt động 🟢
-        </div>
+        <!-- FOOTER -->
+        <footer class="zackaov-footer">
+            &copy; Designer by Zack AOV 2026        </footer>
+    </main>
 
-      </div>
-
-    </div>
-
-    <a href="https://www.mediafire.com/file/12xvhfbtc4j3mrs/%255Bx64%255DLie%25CC%2582n_Qua%25CC%2582n_Mobile_1.62bvhbbgv.1.4_apks_clone_%25236.apk/file"
-    target="_blank"
-    class="download">
-
-      <i class="fa-solid fa-download"></i>
-
-    </a>
-
-  </div>
-
-  <div class="title">
-    Get Key
+    <script src="https://zackaov.com/assets/js/main.2.0.js?v=1780720700"></script>
     
-    
-  </div>
-
-  <div class="card">
-
-    <div class="left">
-
-      <img class="game-img"
-      src="https://i.imgur.com/5AGf5hM.jpeg">
-
-      <div>
-
-        <div class="game-name">
-          Key Hack Map IOS
-        </div>
-
-        <div class="date">
-          Đang hoạt động 🟢
-        </div>
-
-      </div>
-
-    </div>
-
-    <a href="https://link4sub.com/HubWRpr4ir"
-    target="_blank"
-    class="download">
-
-      <i class="fa-solid fa-key"></i>
-
-    </a>
-
-  </div>
-
-  <div class="card">
-
-    <div class="left">
-
-      <img class="game-img"
-      src="https://i.imgur.com/5AGf5hM.jpeg">
-
-      <div>
-
-        <div class="game-name">
-          Key Hack Map Android
-        </div>
-
-        <div class="date">
-          Đang hoạt động 🟢
-        </div>
-
-      </div>
-
-    </div>
-
-    <a href="https://link4sub.com/s357BX2vRD"
-    target="_blank"
-    class="download">
-
-      <i class="fa-solid fa-key"></i>
-
-    </a>
-
-  </div>
-
-  <div class="copyright">
-    Copyright © 2026 Jian AOV.
-  </div>
-
-</div>
-
-<audio id="music" loop autoplay hidden>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-document.addEventListener("click", function () {
-  document.getElementById("music").play();
-}, { once:true });
-
-const toggle = document.getElementById("theme-toggle");
-
-toggle.onclick = () => {
-  document.body.classList.toggle("dark");
-
-  if(document.body.classList.contains("dark")){
-    toggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-  }else{
-    toggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-  }
-};
-
-document.addEventListener("contextmenu", function(e){
-  e.preventDefault();
-});
-
-document.addEventListener("copy", function(e){
-  e.preventDefault();
-});
-
-document.addEventListener("selectstart", function(e){
-  e.preventDefault();
-});
-
-document.addEventListener("dragstart", function(e){
-  e.preventDefault();
-});
-
-document.addEventListener("keydown", function(e){
-
-  if(e.key === "F12"){
-    e.preventDefault();
-  }
-
-  if(e.ctrlKey && e.key.toLowerCase() === "u"){
-    e.preventDefault();
-  }
-
-  if(e.ctrlKey && e.key.toLowerCase() === "c"){
-    e.preventDefault();
-  }
-
-  if(e.ctrlKey && e.key.toLowerCase() === "s"){
-    e.preventDefault();
-  }
-
-  if(e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i"){
-    e.preventDefault();
-  }
-
-});
-
-</script>
-
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"c9b1766f5ec343179a8e8eb1ffe83136","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
