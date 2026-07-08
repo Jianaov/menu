@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="vi" class="h-full" data-scroll-behavior="smooth" data-theme="dark">
+<html lang="vi" class="h-full" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     
-    <!-- Nhúng thư viện Tailwind CSS để kích hoạt các class giao diện -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- Nhúng thư viện Bootstrap Icons để hiển thị các icon -->
-    <link rel="stylesheet" href="https://jsdelivr.net" />
-
-    <meta name="theme-color" content="#080b0f" />
-    <meta name="color-scheme" content="dark" />
     <title>TUMADAM — Mod Game iOS &amp; Android</title>
     <meta name="description" content="Cài đặt game mod iOS trực tiếp không cần jailbreak. Tải IPA &amp; APK hack miễn phí. Cộng đồng game thủ Việt Nam." />
+
+    <!-- TẢI THƯ VIỆN TAILWIND CSS ĐỂ DỰNG GIAO DIỆN -->
+    <script src="https://tailwindcss.com"></script>
     
-    <!-- Cấu hình CSS tùy chỉnh cho màn hình chờ và nền tối -->
+    <!-- TẢI THƯ VIỆN ICON BOOTSTRAP -->
+    <link rel="stylesheet" href="https://jsdelivr.net" />
+
+    <!-- CẤU HÌNH CSS ĐỂ ĐẢM BẢO CHẠY ĐÚNG HIỆU ỨNG -->
     <style>
       body {
         background-color: #080b0f;
         color: #f3f4f6;
         font-family: system-ui, -apple-system, sans-serif;
       }
-      /* Hiệu ứng loading khối lập phương */
+      /* Hiệu ứng loading dạng lưới 9 khối lập phương */
       .tm-grid-loader {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 4px;
-        width: calc(var(--cube-size) * 3 + 8px);
+        gap: 6px;
+        width: 90px;
       }
       .tm-cube {
-        width: var(--cube-size);
-        height: var(--cube-size);
-        background-color: var(--cube-color);
+        width: 26px;
+        height: 26px;
+        background-color: #3b82f6;
         animation: tm-pulse 1.2s infinite ease-in-out;
+        border-radius: 4px;
       }
       .tm-cube:nth-child(1) { animation-delay: 0.2s; }
       .tm-cube:nth-child(2) { animation-delay: 0.3s; }
@@ -45,115 +45,111 @@
       .tm-cube:nth-child(9) { animation-delay: 0.2s; }
       @keyframes tm-pulse {
         0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.3; transform: scale(0.7); }
+        50% { opacity: 0.2; transform: scale(0.6); }
       }
     </style>
   </head>
-  <body class="min-h-full flex flex-col">
+  <body class="min-h-full flex flex-col antialiased selection:bg-blue-500 selection:text-white">
 
-    <!-- MÀN HÌNH CHỜ (LOADING SCREEN) - Sẽ tự động biến mất sau 1.5 giây -->
-    <div id="loading-screen" style="position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(8, 11, 15, 0.95);backdrop-filter:blur(6px);transition:opacity 0.5s ease">
-      <div style="--cube-size:20px;--cube-color:#3b82f6" class="tm-grid-loader">
-        <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
-        <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
-        <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
+    <!-- 1. MÀN HÌNH CHỜ (LOADING SCREEN) - SẼ TỰ BIẾN MẤT SAU 1 GIÂY -->
+    <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-[#080b0f] transition-opacity duration-500">
+      <div class="flex flex-col items-center gap-4">
+        <div class="tm-grid-loader">
+          <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
+          <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
+          <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
+        </div>
+        <p class="text-blue-500 font-medium text-sm tracking-wider animate-pulse">ĐANG TẢI TUMADAM...</p>
       </div>
     </div>
 
-    <!-- THANH MENU TRÊN (HEADER) -->
-    <header class="border-b border-gray-800 bg-[#0c1017] sticky top-0 z-40">
+    <!-- 2. THANH MENU CHÍNH (HEADER) -->
+    <header class="border-b border-gray-800 bg-[#0c1017]/90 backdrop-blur sticky top-0 z-40">
       <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-bold text-xl tracking-wider text-white">T</div>
+          <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-black text-xl text-white shadow-lg shadow-blue-500/20">T</div>
           <span class="font-black text-xl tracking-wider bg-gradient-to-r text-transparent bg-clip-text from-blue-500 to-teal-400">TUMADAM</span>
         </div>
-        <div class="flex gap-4">
-          <a href="#" class="text-gray-400 hover:text-white flex items-center gap-1 text-sm"><i class="bi bi-apple"></i> iOS</a>
-          <a href="#" class="text-gray-400 hover:text-white flex items-center gap-1 text-sm"><i class="bi bi-android2"></i> Android</a>
+        <!-- Thanh tìm kiếm nhanh -->
+        <div class="relative hidden sm:block w-64">
+          <i class="bi bi-search absolute left-3 top-2.5 text-gray-500 text-sm"></i>
+          <input type="text" id="search-input" onkeyup="searchGame()" placeholder="Tìm kiếm game mod..." class="w-full bg-[#161b22] border border-gray-800 rounded-xl pl-9 pr-4 py-1.5 text-sm text-gray-200 focus:outline-none focus:border-blue-500 transition-colors">
         </div>
       </div>
     </header>
 
-    <!-- NỘI DUNG CHÍNH (MAIN CONTENT) -->
+    <!-- 3. NỘI DUNG TRANG WEB (MAIN CONTENT) -->
     <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
       
-      <!-- Khối Giới Thiệu -->
-      <div class="text-center py-8 max-w-2xl mx-auto">
-        <h1 class="text-3xl font-extrabold md:text-4xl text-white mb-3">Kho Mod Game iOS & Android</h1>
-        <p class="text-gray-400 text-sm md:text-base">Tải file IPA & APK chất lượng cao. Cài đặt trực tiếp không cần máy tính, không cần Jailbreak.</p>
+      <!-- Khối Banner Giới Thiệu -->
+      <div class="text-center py-10 max-w-2xl mx-auto">
+        <span class="bg-blue-500/10 text-blue-400 text-xs px-3 py-1 rounded-full border border-blue-500/20 font-semibold uppercase tracking-wider">Sideload Không Jailbreak</span>
+        <h1 class="text-3xl font-extrabold md:text-4xl text-white mt-3 mb-4">Kho Mod Game iOS & Android</h1>
+        <p class="text-gray-400 text-sm md:text-base leading-relaxed">Cài đặt trực tiếp file IPA & APK chất lượng cao. Không cần máy tính, cập nhật liên tục các tính năng hack VIP.</p>
       </div>
 
-      <!-- Khối Danh Sách Game Cửa Hàng -->
-      <div class="mt-8">
+      <!-- Danh Sách Ứng Dụng -->
+      <div class="mt-4">
         <div class="flex justify-between items-center mb-6">
-          <h2 class="text-xl font-bold flex items-center gap-2"><i class="bi bi-fire text-orange-500"></i> Game Mod Mới Cập Nhật</h2>
-          <span class="text-xs bg-blue-500/10 text-blue-400 px-2.5 py-1 rounded-full border border-blue-500/20 font-medium">Cập nhật hôm nay</span>
+          <h2 class="text-lg font-bold flex items-center gap-2 text-white"><i class="bi bi-fire text-orange-500"></i> Game Mới Phát Hành</h2>
+          <span class="text-xs text-gray-500" id="game-count">Hiển thị 3 ứng dụng</span>
         </div>
 
-        <!-- Lưới danh sách các thẻ Game -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Lưới Chứa Thẻ Game -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="game-container">
           
           <!-- Thẻ Game 1 -->
-          <div class="bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 transition-colors">
+          <div class="game-card bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 hover:bg-[#121821] transition-all duration-300">
             <div class="w-16 h-16 bg-gradient-to-tr from-yellow-500 to-amber-600 rounded-2xl shrink-0 flex items-center justify-center shadow-lg"><i class="bi bi-controller text-3xl text-black"></i></div>
             <div class="flex-grow min-w-0">
-              <h3 class="font-bold text-white text-base truncate">Liên Quân Mobile Mod</h3>
-              <p class="text-xs text-gray-400 truncate mb-2">Hack Bản Đồ, Antiban, Skin</p>
-              <div class="flex gap-2">
-                <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded font-semibold"><i class="bi bi-apple"></i> IPA</span>
-                <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded font-semibold"><i class="bi bi-android2"></i> APK</span>
+              <h3 class="game-title font-bold text-white text-base truncate">Liên Quân Mobile Mod</h3>
+              <p class="text-xs text-gray-400 truncate mb-2">Hack Bản Đồ, Antiban, Antilag</p>
+              <div class="flex gap-1.5">
+                <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded font-medium">IPA</span>
+                <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded font-medium">APK</span>
               </div>
             </div>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3 py-2 rounded-xl transition-colors">Tải</button>
+            <button onclick="openDownload('Liên Quân Mobile Mod')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-colors shadow-md shadow-blue-600/10 shrink-0">Tải Về</button>
           </div>
 
           <!-- Thẻ Game 2 -->
-          <div class="bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 transition-colors">
+          <div class="game-card bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 hover:bg-[#121821] transition-all duration-300">
             <div class="w-16 h-16 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-2xl shrink-0 flex items-center justify-center shadow-lg"><i class="bi bi-joystick text-3xl text-white"></i></div>
             <div class="flex-grow min-w-0">
-              <h3 class="font-bold text-white text-base truncate">PUBG Mobile Hack</h3>
-              <p class="text-xs text-gray-400 truncate mb-2">Hiện khung, Giảm giật, AimBot</p>
-              <div class="flex gap-2">
-                <span class="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-semibold"><i class="bi bi-apple"></i> iOS Only</span>
+              <h3 class="game-title font-bold text-white text-base truncate">PUBG Mobile Hack</h3>
+              <p class="text-xs text-gray-400 truncate mb-2">Hiện Khung Xương, Giảm Giật</p>
+              <div class="flex gap-1.5">
+                <span class="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-medium">iOS Only</span>
               </div>
             </div>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3 py-2 rounded-xl transition-colors">Tải</button>
+            <button onclick="openDownload('PUBG Mobile Hack')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-colors shadow-md shadow-blue-600/10 shrink-0">Tải Về</button>
           </div>
 
           <!-- Thẻ Game 3 -->
-          <div class="bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 transition-colors">
+          <div class="game-card bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 hover:bg-[#121821] transition-all duration-300">
             <div class="w-16 h-16 bg-gradient-to-tr from-green-500 to-emerald-600 rounded-2xl shrink-0 flex items-center justify-center shadow-lg"><i class="bi bi-shield-shaded text-3xl text-white"></i></div>
             <div class="flex-grow min-w-0">
-              <h3 class="font-bold text-white text-base truncate">Subway Surfers Mod</h3>
-              <p class="text-xs text-gray-400 truncate mb-2">Vô hạn Tiền, Khóa Vàng</p>
-              <div class="flex gap-2">
-                <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-semibold"><i class="bi bi-android2"></i> Android</span>
+              <h3 class="game-title font-bold text-white text-base truncate">Subway Surfers Mod</h3>
+              <p class="text-xs text-gray-400 truncate mb-2">Vô hạn Tiền, Chìa Khóa</p>
+              <div class="flex gap-1.5">
+                <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-medium">Android</span>
               </div>
             </div>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3 py-2 rounded-xl transition-colors">Tải</button>
+            <button onclick="openDownload('Subway Surfers Mod')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-colors shadow-md shadow-blue-600/10 shrink-0">Tải Về</button>
           </div>
 
         </div>
       </div>
     </main>
 
-    <!-- THANH CHÂN TRANG (FOOTER) -->
-    <footer class="border-t border-gray-800 bg-[#0c1017] py-6 text-center text-xs text-gray-500">
-      <p>© 2026 TUMADAM. Bảo lưu mọi quyền.</p>
-    </footer>
-
-    <!-- SCRIPT ĐIỀU KHIỂN HOẠT ĐỘNG -->
-    <script>
-      // Hàm ẩn màn hình chờ sau khi trang web tải xong để hiển thị giao diện chính
-      window.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-          const loader = document.getElementById('loading-screen');
-          if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => loader.remove(), 500); // Xóa hẳn loader khỏi mã nguồn
-          }
-        }, 1500); // Đặt thời gian chờ mô phỏng là 1.5 giây
-      });
-    </script>
-  </body>
-</html>
+    <!-- 4. KHỐI THÔNG BÁO POPUP KHI BẤM NÚT TẢI (MODAL BOX) -->
+    <div id="download-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-fade-in">
+      <div class="bg-[#0c1017] border border-gray-800 rounded-2xl max-w-sm w-full p-6 text-center relative shadow-2xl">
+        <button onclick="closeDownload()" class="absolute top-4 right-4 text-gray-500 hover:text-white text-lg"><i class="bi bi-x-lg"></i></button>
+        <div class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-full flex items-center justify-center mx-auto text-xl mb-3"><i class="bi bi-cloud-arrow-down"></i></div>
+        <h4 class="font-bold text-lg text-white mb-1" id="modal-game-name">Tên Game</h4>
+        <p class="text-xs text-gray-400 mb-6">Vui lòng chọn phiên bản phù hợp để cài đặt trực tiếp vào thiết bị của bạn.</p>
+        <div class="flex flex-col gap-2.5">
+          <a href="#" class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2"><i class="bi bi-apple"></i> Cài đặt trực tiếp (iOS)</a>
+          <a href="#" class="w-full bg-[#161b22] hover:bg-[#21262d] text-gray-200 text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2 border border-gray-800"><i class="bi bi-android2"></i> Tải file APK (Android)</a>
+        </div>
