@@ -1,155 +1,294 @@
-<!DOCTYPE html>
-<html lang="vi" class="h-full" data-theme="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-    
-    <title>TUMADAM — Mod Game iOS &amp; Android</title>
-    <meta name="description" content="Cài đặt game mod iOS trực tiếp không cần jailbreak. Tải IPA &amp; APK hack miễn phí. Cộng đồng game thủ Việt Nam." />
-
-    <!-- TẢI THƯ VIỆN TAILWIND CSS ĐỂ DỰNG GIAO DIỆN -->
-    <script src="https://tailwindcss.com"></script>
-    
-    <!-- TẢI THƯ VIỆN ICON BOOTSTRAP -->
-    <link rel="stylesheet" href="https://jsdelivr.net" />
-
-    <!-- CẤU HÌNH CSS ĐỂ ĐẢM BẢO CHẠY ĐÚNG HIỆU ỨNG -->
-    <style>
-      body {
-        background-color: #080b0f;
-        color: #f3f4f6;
-        font-family: system-ui, -apple-system, sans-serif;
-      }
-      /* Hiệu ứng loading dạng lưới 9 khối lập phương */
-      .tm-grid-loader {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        width: 90px;
-      }
-      .tm-cube {
-        width: 26px;
-        height: 26px;
-        background-color: #3b82f6;
-        animation: tm-pulse 1.2s infinite ease-in-out;
-        border-radius: 4px;
-      }
-      .tm-cube:nth-child(1) { animation-delay: 0.2s; }
-      .tm-cube:nth-child(2) { animation-delay: 0.3s; }
-      .tm-cube:nth-child(3) { animation-delay: 0.4s; }
-      .tm-cube:nth-child(4) { animation-delay: 0.1s; }
-      .tm-cube:nth-child(5) { animation-delay: 0.2s; }
-      .tm-cube:nth-child(6) { animation-delay: 0.3s; }
-      .tm-cube:nth-child(7) { animation-delay: 0s; }
-      .tm-cube:nth-child(8) { animation-delay: 0.1s; }
-      .tm-cube:nth-child(9) { animation-delay: 0.2s; }
-      @keyframes tm-pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.2; transform: scale(0.6); }
-      }
-    </style>
-  </head>
-  <body class="min-h-full flex flex-col antialiased selection:bg-blue-500 selection:text-white">
-
-    <!-- 1. MÀN HÌNH CHỜ (LOADING SCREEN) - SẼ TỰ BIẾN MẤT SAU 1 GIÂY -->
-    <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-[#080b0f] transition-opacity duration-500">
-      <div class="flex flex-col items-center gap-4">
-        <div class="tm-grid-loader">
-          <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
-          <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
-          <div class="tm-cube"></div><div class="tm-cube"></div><div class="tm-cube"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anh Tuấn AOV</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="Anh Tuấn AOV, anhtuanaov, anhtuan aov, Anh Tuan AOV, anh tuan aov">
+    <meta name="author" content="Anh Tuấn AOV">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://anhtuanaov.com/">
+    <link rel="icon" href="https://anhtuanaov.com/uploads/intro/1780035315_3031f1fc81d53f5d.png" type="image/png">
+    <link rel="shortcut icon" href="https://anhtuanaov.com/uploads/intro/1780035315_3031f1fc81d53f5d.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://anhtuanaov.com/uploads/intro/1780035315_3031f1fc81d53f5d.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="anhtuanaov">
+    <meta property="og:url" content="https://anhtuanaov.com/">
+    <meta property="og:title" content="Anh Tuấn AOV">
+    <meta property="og:description" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anh Tuấn AOV">
+    <meta name="twitter:description" content="">
+    <link rel="preload" as="image" href="https://anhtuanaov.com/uploads/intro/1780876068_95ba0d3550606bea.jpeg" fetchpriority="high">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://anhtuanaov.com/assets/css/style.2.0.css?v=1781098040">
+</head>
+<body class="vt-profile-ready">
+    <div id="introSplash" class="hide">
+        <div class="splash-inner">
+            <div class="splash-ring"></div>
+            <img src="/uploads/intro/1780876068_95ba0d3550606bea.jpeg" class="splash-avatar" alt="Avatar">
+            <h1 class="splash-title">Anh Tuấn AOV</h1>
+            <p class="splash-sub">Đang khởi động...</p>
+            <div class="splash-loader"><span></span></div>
         </div>
-        <p class="text-blue-500 font-medium text-sm tracking-wider animate-pulse">ĐANG TẢI TUMADAM...</p>
-      </div>
     </div>
+    <main role="main">
+        <!-- NAV -->
+        <nav class="vthangios-nav" aria-label="Điều hướng chính">
+            <button class="vthangios-bell-btn" id="vthangios-bell-btn" aria-label="Thông báo">
+                <i class="fas fa-bell"></i>
+                                <span class="vthangios-bell-badge"></span>
+                            </button>
+            <span aria-hidden="true"></span>
+        </nav>
 
-    <!-- 2. THANH MENU CHÍNH (HEADER) -->
-    <header class="border-b border-gray-800 bg-[#0c1017]/90 backdrop-blur sticky top-0 z-40">
-      <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-black text-xl text-white shadow-lg shadow-blue-500/20">T</div>
-          <span class="font-black text-xl tracking-wider bg-gradient-to-r text-transparent bg-clip-text from-blue-500 to-teal-400">TUMADAM</span>
-        </div>
-        <!-- Thanh tìm kiếm nhanh -->
-        <div class="relative hidden sm:block w-64">
-          <i class="bi bi-search absolute left-3 top-2.5 text-gray-500 text-sm"></i>
-          <input type="text" id="search-input" onkeyup="searchGame()" placeholder="Tìm kiếm game mod..." class="w-full bg-[#161b22] border border-gray-800 rounded-xl pl-9 pr-4 py-1.5 text-sm text-gray-200 focus:outline-none focus:border-blue-500 transition-colors">
-        </div>
-      </div>
-    </header>
-
-    <!-- 3. NỘI DUNG TRANG WEB (MAIN CONTENT) -->
-    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
-      
-      <!-- Khối Banner Giới Thiệu -->
-      <div class="text-center py-10 max-w-2xl mx-auto">
-        <span class="bg-blue-500/10 text-blue-400 text-xs px-3 py-1 rounded-full border border-blue-500/20 font-semibold uppercase tracking-wider">Sideload Không Jailbreak</span>
-        <h1 class="text-3xl font-extrabold md:text-4xl text-white mt-3 mb-4">Kho Mod Game iOS & Android</h1>
-        <p class="text-gray-400 text-sm md:text-base leading-relaxed">Cài đặt trực tiếp file IPA & APK chất lượng cao. Không cần máy tính, cập nhật liên tục các tính năng hack VIP.</p>
-      </div>
-
-      <!-- Danh Sách Ứng Dụng -->
-      <div class="mt-4">
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="text-lg font-bold flex items-center gap-2 text-white"><i class="bi bi-fire text-orange-500"></i> Game Mới Phát Hành</h2>
-          <span class="text-xs text-gray-500" id="game-count">Hiển thị 3 ứng dụng</span>
-        </div>
-
-        <!-- Lưới Chứa Thẻ Game -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="game-container">
-          
-          <!-- Thẻ Game 1 -->
-          <div class="game-card bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 hover:bg-[#121821] transition-all duration-300">
-            <div class="w-16 h-16 bg-gradient-to-tr from-yellow-500 to-amber-600 rounded-2xl shrink-0 flex items-center justify-center shadow-lg"><i class="bi bi-controller text-3xl text-black"></i></div>
-            <div class="flex-grow min-w-0">
-              <h3 class="game-title font-bold text-white text-base truncate">Liên Quân Mobile Mod</h3>
-              <p class="text-xs text-gray-400 truncate mb-2">Hack Bản Đồ, Antiban, Antilag</p>
-              <div class="flex gap-1.5">
-                <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded font-medium">IPA</span>
-                <span class="text-[10px] bg-gray-800 text-gray-300 px-2 py-0.5 rounded font-medium">APK</span>
-              </div>
+        <!-- NOTIFICATION POPUP -->
+        <div id="vthangios-notif-overlay" class="vthangios-notif-overlay" onclick="vtCloseNotif(event)"></div>
+        <div id="vthangios-notif-panel" class="vthangios-notif-panel">
+            <div class="vthangios-notif-header">
+                <span><i class="fas fa-bell"></i> Thông Báo</span>
+                <button onclick="vtCloseNotif()" class="vthangios-notif-close"><i class="fas fa-xmark"></i></button>
             </div>
-            <button onclick="openDownload('Liên Quân Mobile Mod')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-colors shadow-md shadow-blue-600/10 shrink-0">Tải Về</button>
-          </div>
-
-          <!-- Thẻ Game 2 -->
-          <div class="game-card bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 hover:bg-[#121821] transition-all duration-300">
-            <div class="w-16 h-16 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-2xl shrink-0 flex items-center justify-center shadow-lg"><i class="bi bi-joystick text-3xl text-white"></i></div>
-            <div class="flex-grow min-w-0">
-              <h3 class="game-title font-bold text-white text-base truncate">PUBG Mobile Hack</h3>
-              <p class="text-xs text-gray-400 truncate mb-2">Hiện Khung Xương, Giảm Giật</p>
-              <div class="flex gap-1.5">
-                <span class="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-medium">iOS Only</span>
-              </div>
-            </div>
-            <button onclick="openDownload('PUBG Mobile Hack')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-colors shadow-md shadow-blue-600/10 shrink-0">Tải Về</button>
-          </div>
-
-          <!-- Thẻ Game 3 -->
-          <div class="game-card bg-[#0c1017] border border-gray-800 rounded-2xl p-4 flex items-center gap-4 hover:border-blue-500/50 hover:bg-[#121821] transition-all duration-300">
-            <div class="w-16 h-16 bg-gradient-to-tr from-green-500 to-emerald-600 rounded-2xl shrink-0 flex items-center justify-center shadow-lg"><i class="bi bi-shield-shaded text-3xl text-white"></i></div>
-            <div class="flex-grow min-w-0">
-              <h3 class="game-title font-bold text-white text-base truncate">Subway Surfers Mod</h3>
-              <p class="text-xs text-gray-400 truncate mb-2">Vô hạn Tiền, Chìa Khóa</p>
-              <div class="flex gap-1.5">
-                <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-medium">Android</span>
-              </div>
-            </div>
-            <button onclick="openDownload('Subway Surfers Mod')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-colors shadow-md shadow-blue-600/10 shrink-0">Tải Về</button>
-          </div>
-
+            <div class="vthangios-notif-body">
+                                                <div class="vthangios-notif-item">
+                    <div class="vthangios-notif-title">Thông báo!</div>
+                                        <div class="vthangios-notif-content">Hè này link vượt nhanh hết sớm nên ae chịu khó get key sớm để nhận được key free nếu hết mã thì anh em chờ đến 00:00 giờ ngày sau hoặc lên <a href="https://shop.anhtuanaov.com" target="_blank" rel="noopener noreferrer">shop.anhtuanaov.com</a> mua key trực tiếp</div>
+                                        <div class="vthangios-notif-time">10:00 16/06/2026</div>
+                </div>
+                                            </div>
         </div>
-      </div>
+
+        <!-- AVATAR -->
+        <div class="vthangios-avatar-wrap">
+            <img class="vthangios-avatar" src="/uploads/intro/1780876068_95ba0d3550606bea.jpeg" alt="Ảnh đại diện Anh Tuấn AOV" fetchpriority="high" width="120" height="120">
+        </div>
+
+        <!-- NAME & HEADLINE -->
+        <p class="vthangios-iam">Hi, i am</p>
+        <h1 class="vthangios-name">
+            Anh Tuấn AOV            <img class="vthangios-verify" src="assets/img/verify.png" alt="verified" width="27" height="27">
+        </h1>
+        <p class="vthangios-headline">and I'm a <span id="typed-text" class="vthangios-gradient-text">Develo</span></p>
+
+        <!-- SOCIALS -->
+        <div class="vthangios-socials">
+                            <a href="https://telegram.me/anhtuanaov" class="vthangios-social-item" target="_blank" rel="noopener noreferrer" aria-label="Mạng xã hội">
+                    <img src="/uploads/social/1778059361_538d91b7cd587352.webp" alt="Social" width="40" height="40">
+                </a>
+                            <a href="https://discord.gg/8bptK473m" class="vthangios-social-item" target="_blank" rel="noopener noreferrer" aria-label="Mạng xã hội">
+                    <img src="/uploads/social/1780723886_162178cf811fe701.png" alt="Social" width="40" height="40">
+                </a>
+                            <a href="https://youtube.com/@anhtuanaov" class="vthangios-social-item" target="_blank" rel="noopener noreferrer" aria-label="Mạng xã hội">
+                    <img src="/uploads/social/1778059374_a58070f6f354eb51.png" alt="Social" width="40" height="40">
+                </a>
+                    </div>
+
+        <!-- LINK BOXES -->
+        <div class="vthangios-linkbox-section">
+                        <div>
+                <div class="vthangios-linkbox">
+                                        <div class="vthangios-linkbox-item">
+                        <p class="vthangios-linkbox-title">Website Bán Key LQMB Tự Động</p>
+                        <a href="https://shop.anhtuanaov.com/" class="vthangios-link-btn" target="_blank" rel="noopener" aria-label="Website Bán Key LQMB Tự Động">
+                                                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                        <div class="vthangios-linkbox-item">
+                        <p class="vthangios-linkbox-title">Dns Profile Antiban Vip</p>
+                        <a href="https://storeipa.com/file/anhtuanaov.mobileconfig" class="vthangios-link-btn" aria-label="Dns Profile Antiban Vip">
+                                                            <i class="fa-solid fa-download" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                        <div class="vthangios-linkbox-item">
+                        <p class="vthangios-linkbox-title">Telegram Channel</p>
+                        <a href="https://telegram.me/anhtuanaov" class="vthangios-link-btn" target="_blank" rel="noopener" aria-label="Telegram Channel">
+                                                            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                                                    </a>
+                    </div>
+                                    </div>
+            </div>
+                    </div>
+
+        <!-- CATEGORY TABS -->
+        
+        <!-- APP GROUPS -->
+        <section class="vthangios-app-section" aria-label="Danh sách ứng dụng">
+                            <div class="vthangios-group-block" id="group-8">
+                <h2 class="vthangios-section-title">
+                    Tải Game                                            <i class="fas fa-brands fa-apple vthangios-loading-icon" aria-hidden="true"></i>
+                                    </h2>
+                                <div class="vthangios-app-list">
+                                            <div class="vthangios-app-item">
+                            <div class="vthangios-app-info">
+                                <img src="/uploads/apps/1783498527_7312892b4e7314f7.jpeg" alt="Menu Hack Map V1" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="vthangios-app-name">
+                                        Menu Hack Map V1                                    </span>
+                                                                            <span class="vthangios-app-desc">
+                                            Đang cập nhật                                        </span>
+                                                                    </div>
+                            </div>
+                            <button class="vthangios-download-btn " aria-label="Tải xuống Menu Hack Map V1" onclick="window.open('https://mokhoasub.com/d9de4lN','_blank')">
+                                <span class="svg-icon">
+<svg style="width:24px;height:24px;vertical-align:middle;fill:currentColor;overflow:hidden" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <path d="M691.3 693.9c-24.7 0-44.8-20-44.8-44.8 0-24.7 20-44.8
+    44.8-44.8h40c190.6 0 176.8-274.4.2-268.1C671.2 37.2 208 145.1
+    299 445c-93-73.9-204.6 69.2-109.6 139.8 67.2 49.9 188.5-18.4
+    188.5 64.3 0 56.3-63.9 44.8-125.3 44.8-149.3 0-241.3-159.3-155.8-281.1
+    40.8-58.2 104.9-72.6 104.9-72.6C231.4 111.3 492.7-9.5 686.2 120c83.1
+    55.6 114.5 136.9 114.5 136.9 48.8 14.8 90.7 45.6 119.2 86.4
+    96 137.3 21.5 350.6-228.6 350.6zM514.2 335.8c.2 0 .3.1.5.1s.3-.1.5-.1h-1zm177.1
+    421.1c0-17.5-45.8-17.3-63.3.1l-32.8 32.9c-14.1 14.1-38.2
+    4.2-38.2-15.8V380.6c0-24.5-17.9-44.4-42.3-44.7-24.5.3-47.2 20.1-47.2
+    44.7v393.5c0 19.9-24.1 29.9-38.2 15.8l-32.8-42.1c-17.5-17.5-45.3-9.3-62.8-9.3h-.2
+    c-17.5 44.8-17.6 55.1-.1 72.6L449 931.5c35 35 91.6 37.3 126.6 2.3l115.7-114.6
+    c17.5-17.5 0-45.2 0-62.7v.4z"></path>
+</svg></span>
+                            </button>
+                        </div>
+                                            <div class="vthangios-app-item">
+                            <div class="vthangios-app-info">
+                                <img src="/uploads/apps/1783500216_13859da197982241.jpeg" alt="Menu Mod Skin V2" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="vthangios-app-name">
+                                        Menu Mod Skin V2                                    </span>
+                                                                            <span class="vthangios-app-desc">
+                                            Đang Cập Nhật                                        </span>
+                                                                    </div>
+                            </div>
+                            <button class="vthangios-download-btn " aria-label="Tải xuống Menu Mod Skin V2" onclick="window.open('https://mokhoasub.com/w5Zihd','_blank')">
+                                <span class="svg-icon">
+<svg style="width:24px;height:24px;vertical-align:middle;fill:currentColor;overflow:hidden" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <path d="M691.3 693.9c-24.7 0-44.8-20-44.8-44.8 0-24.7 20-44.8
+    44.8-44.8h40c190.6 0 176.8-274.4.2-268.1C671.2 37.2 208 145.1
+    299 445c-93-73.9-204.6 69.2-109.6 139.8 67.2 49.9 188.5-18.4
+    188.5 64.3 0 56.3-63.9 44.8-125.3 44.8-149.3 0-241.3-159.3-155.8-281.1
+    40.8-58.2 104.9-72.6 104.9-72.6C231.4 111.3 492.7-9.5 686.2 120c83.1
+    55.6 114.5 136.9 114.5 136.9 48.8 14.8 90.7 45.6 119.2 86.4
+    96 137.3 21.5 350.6-228.6 350.6zM514.2 335.8c.2 0 .3.1.5.1s.3-.1.5-.1h-1zm177.1
+    421.1c0-17.5-45.8-17.3-63.3.1l-32.8 32.9c-14.1 14.1-38.2
+    4.2-38.2-15.8V380.6c0-24.5-17.9-44.4-42.3-44.7-24.5.3-47.2 20.1-47.2
+    44.7v393.5c0 19.9-24.1 29.9-38.2 15.8l-32.8-42.1c-17.5-17.5-45.3-9.3-62.8-9.3h-.2
+    c-17.5 44.8-17.6 55.1-.1 72.6L449 931.5c35 35 91.6 37.3 126.6 2.3l115.7-114.6
+    c17.5-17.5 0-45.2 0-62.7v.4z"></path>
+</svg></span>
+                            </button>
+                        </div>
+                                    </div><!-- /.vthangios-app-list -->
+                </div><!-- /.vthangios-group-block -->
+                            <div class="vthangios-group-block" id="group-9">
+                <h2 class="vthangios-section-title">
+                    Get Key                                            <i class="fas fa-spinner vthangios-loading-icon" aria-hidden="true"></i>
+                                    </h2>
+                                <div class="vthangios-app-list">
+                                            <div class="vthangios-app-item">
+                            <div class="vthangios-app-info">
+                                <img src="/uploads/apps/1782494322_dc13dfb41fee8080.jpeg" alt="Get Key Hack Map V1" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="vthangios-app-name">
+                                        Get Key Hack Map V1                                    </span>
+                                                                            <span class="vthangios-auto-time">20:28:54 20/07/2026</span>
+                                                                    </div>
+                            </div>
+                            <button class="vthangios-download-btn vthangios-link-type" aria-label="Truy cập Get Key Hack Map V1" onclick="window.open('https://authtool.app/get-key?code=30a82af2-6938-4bc5-9b26-6a74ae3c3f14','_blank')">
+                                <span class="svg-icon"><i class="fa-solid fa-up-right-from-square" style="font-size:19px;line-height:24px;display:block;width:24px;height:24px;text-align:center"></i></span>
+                            </button>
+                        </div>
+                                            <div class="vthangios-app-item">
+                            <div class="vthangios-app-info">
+                                <img src="/uploads/apps/1781345031_6256ce93d2aa9b35.jpeg" alt="Get Key Mod Skin V2" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="vthangios-app-name">
+                                        Get Key Mod Skin V2                                    </span>
+                                                                            <span class="vthangios-auto-time">20:28:54 20/07/2026</span>
+                                                                    </div>
+                            </div>
+                            <button class="vthangios-download-btn vthangios-link-type" aria-label="Truy cập Get Key Mod Skin V2" onclick="window.open('https://authtool.app/get-key?code=25e78677-9a16-4818-a5ea-3382a7723d27','_blank')">
+                                <span class="svg-icon"><i class="fa-solid fa-up-right-from-square" style="font-size:19px;line-height:24px;display:block;width:24px;height:24px;text-align:center"></i></span>
+                            </button>
+                        </div>
+                                    </div><!-- /.vthangios-app-list -->
+                </div><!-- /.vthangios-group-block -->
+                            <div class="vthangios-group-block" id="group-11">
+                <h2 class="vthangios-section-title">
+                    Hướng Dẫn                                    </h2>
+                                <div class="vthangios-app-list">
+                                            <div class="vthangios-app-item">
+                            <div class="vthangios-app-info">
+                                <img src="/uploads/apps/1782494183_a663b4533071ac89.png" alt="Hướng dẫn mod file" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="vthangios-app-name">
+                                        Hướng dẫn mod file                                    </span>
+                                                                            <span class="vthangios-app-desc">
+                                            Xem trên telegram                                        </span>
+                                                                    </div>
+                            </div>
+                            <button class="vthangios-download-btn vthangios-link-type" aria-label="Truy cập Hướng dẫn mod file" onclick="window.open('https://t.me/anhtuanaov/236','_blank')">
+                                <span class="svg-icon"><i class="fa-solid fa-up-right-from-square" style="font-size:19px;line-height:24px;display:block;width:24px;height:24px;text-align:center"></i></span>
+                            </button>
+                        </div>
+                                            <div class="vthangios-app-item">
+                            <div class="vthangios-app-info">
+                                <img src="/uploads/apps/1782494163_3d125616aab4ee71.png" alt="Hướng dẫn chuyển tài nguyên" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="vthangios-app-name">
+                                        Hướng dẫn chuyển tài nguyên                                    </span>
+                                                                            <span class="vthangios-app-desc">
+                                            Xem trên telegram                                        </span>
+                                                                    </div>
+                            </div>
+                            <button class="vthangios-download-btn vthangios-link-type" aria-label="Truy cập Hướng dẫn chuyển tài nguyên" onclick="window.open('https://t.me/anhtuanaov/238','_blank')">
+                                <span class="svg-icon"><i class="fa-solid fa-up-right-from-square" style="font-size:19px;line-height:24px;display:block;width:24px;height:24px;text-align:center"></i></span>
+                            </button>
+                        </div>
+                                            <div class="vthangios-app-item">
+                            <div class="vthangios-app-info">
+                                <img src="/uploads/apps/1782494375_2ec30cb2ed5daf5b.png" alt="Hướng dẫn cài đặt mod & hack" width="58" height="58" loading="lazy">
+                                <div>
+                                    <span class="vthangios-app-name">
+                                        Hướng dẫn cài đặt mod & hack                                    </span>
+                                                                            <span class="vthangios-app-desc">
+                                            Làm theo hướng dẫn                                        </span>
+                                                                    </div>
+                            </div>
+                            <button class="vthangios-download-btn vthangios-link-type" aria-label="Truy cập Hướng dẫn cài đặt mod & hack" onclick="window.open('https://youtu.be/SjtxYG65utE','_blank')">
+                                <span class="svg-icon"><i class="fa-solid fa-up-right-from-square" style="font-size:19px;line-height:24px;display:block;width:24px;height:24px;text-align:center"></i></span>
+                            </button>
+                        </div>
+                                    </div><!-- /.vthangios-app-list -->
+                </div><!-- /.vthangios-group-block -->
+                    </section>
+
+        <!-- 
+        <audio id="bgMusic" playsinline>
+            <source src="/uploads/mp3.mp3" type="audio/mpeg">
+        </audio>
+        
+        <script>
+        const audio = document.getElementById("bgMusic");
+        
+        function startMusic() {
+            audio.play().catch(err => console.log(err));
+        
+            document.removeEventListener("touchstart", startMusic);
+            document.removeEventListener("click", startMusic);
+        }
+        
+        document.addEventListener("touchstart", startMusic);
+        document.addEventListener("click", startMusic);
+        </script>
+        -->
+
+        <!-- FOOTER -->
+        <footer class="vthangios-footer">
+            © Developed By Anh Tuấn AOV 2025
+        </footer>
     </main>
+    <script src="https://anhtuanaov.com/assets/js/main.2.0.js?v=1781098064"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{"version":"2024.11.0","token":"fb0b86b3a6ab42d3be9fc8dec7bdaf9a","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}" crossorigin="anonymous"></script>
 
-    <!-- 4. KHỐI THÔNG BÁO POPUP KHI BẤM NÚT TẢI (MODAL BOX) -->
-    <div id="download-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-fade-in">
-      <div class="bg-[#0c1017] border border-gray-800 rounded-2xl max-w-sm w-full p-6 text-center relative shadow-2xl">
-        <button onclick="closeDownload()" class="absolute top-4 right-4 text-gray-500 hover:text-white text-lg"><i class="bi bi-x-lg"></i></button>
-        <div class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-full flex items-center justify-center mx-auto text-xl mb-3"><i class="bi bi-cloud-arrow-down"></i></div>
-        <h4 class="font-bold text-lg text-white mb-1" id="modal-game-name">Tên Game</h4>
-        <p class="text-xs text-gray-400 mb-6">Vui lòng chọn phiên bản phù hợp để cài đặt trực tiếp vào thiết bị của bạn.</p>
-        <div class="flex flex-col gap-2.5">
-          <a href="#" class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2"><i class="bi bi-apple"></i> Cài đặt trực tiếp (iOS)</a>
-          <a href="#" class="w-full bg-[#161b22] hover:bg-[#21262d] text-gray-200 text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2 border border-gray-800"><i class="bi bi-android2"></i> Tải file APK (Android)</a>
-        </div>
+
+
+</body>
